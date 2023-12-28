@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:soccer/counter/counter.dart';
 import 'package:soccer/l10n/l10n.dart';
+import 'package:soccer/presentation/pages/testanimation/testanimation.dart';
 
 class CounterPage extends StatelessWidget {
   const CounterPage({super.key});
@@ -23,7 +24,18 @@ class CounterView extends StatelessWidget {
     final l10n = context.l10n;
     return Scaffold(
       appBar: AppBar(title: Text(l10n.counterAppBarTitle)),
-      body: const Center(child: CounterText()),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+              onPressed: () {
+                // TestanimationPage.route();
+                Navigator.push(context, TestanimationPage.route());
+              },
+              child: Text('GO to anmation')),
+          const Center(child: CounterText()),
+        ],
+      ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
